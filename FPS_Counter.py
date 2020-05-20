@@ -1,0 +1,23 @@
+from time import sleep
+import tkinter as tk
+Time_Loop = 0
+FPS = 0
+root= tk.Tk()
+root.title('FPS (_/20)')
+canvas1 = tk.Canvas(root, width = 200, height = 200)
+canvas1.pack()
+
+
+while True:
+    Time_Loop += 0.1
+    if Time_Loop > 1:
+        #print(FPS*2-2)
+        DisplayFPS = tk.Label(root, text= str(FPS*2-2) + '/20 FPS.', fg='black', font=('helvetica', 12))
+        canvas1.create_window(100, 100, window=DisplayFPS)
+        root.update()
+        FPS = 0
+        Time_Loop = 0
+    FPS += 1
+    sleep(0.1)
+
+    
